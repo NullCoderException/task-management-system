@@ -3,26 +3,25 @@ version: "3.8"
 services:
   web:
     build:
-      context: ..
-      dockerfile: docker/Dockerfile.web
+      context: ../src/TaskManager.Web
+      dockerfile: ../../docker/Dockerfile.web
     ports:
       - "3000:3000"
+    environment:
+      - API_URL=http://api:8080
     depends_on:
       - api
 
   api:
     build:
-      context: ..
-      dockerfile: docker/Dockerfile.api
+      context: ../src
+      dockerfile: ../docker/Dockerfile.api
     ports:
-      - "5000:80"
-    depends_on:
-      - rabbitmq
-
-  messaging:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile.messaging
+      - "5001:8080" # Changed to map host port 5001 to container port 8080
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080 # Explicitly set the URL
+      - RabbitMQ__Host=rabbitmq
     depends_on:
       - rabbitmq
 

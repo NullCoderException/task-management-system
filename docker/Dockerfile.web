@@ -1,8 +1,16 @@
+# Build stage
+FROM node:18-alpine as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Production stage
 FROM node:18-alpine
 WORKDIR /app
-COPY src/TaskManager.Web/package*.json ./
-RUN npm install
-COPY src/TaskManager.Web .
-RUN npm run build
-EXPOSE 3000
+COPY --from=build /app/package*.json ./
+COPY --from=build /app/build ./build
+COPY --from=build /app/public ./public
+RUN npm install --production
 CMD ["npm", "start"]

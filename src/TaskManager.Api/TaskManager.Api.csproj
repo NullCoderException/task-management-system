@@ -10,5 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
+  
+  <ItemGroup>
+     <ProjectReference Include="..\TaskManager.Messaging\TaskManager.Messaging.csproj" />
+  </ItemGroup> 
 
 </Project>
