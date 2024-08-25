@@ -1,5 +1,22 @@
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
+using TaskManager.Api;
+using TaskManager.Api.Data;
+using TaskManager.Api.Middleware;
+using TaskManager.Api.Validators;
+
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+builder.Services.AddControllers()
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<TaskDtoValidator>());
+
+// Add reference to Microsoft.EntityFrameworkCore.InMemory package and include the necessary using directive.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseInMemoryDatabase("TaskManagerDb"));
+
+    // Add AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -17,6 +34,8 @@ if (app.Environment.IsDevelopment())
         options.RoutePrefix = string.Empty;
     });
 }
+
+app.UseGlobalExceptionHandler();
 
 app.UseHttpsRedirection();
 
@@ -39,6 +58,18 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+// Seed the database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    DbInitializer.Initialize(context);
+}
 
 app.Run();
 

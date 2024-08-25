@@ -10,6 +10,7 @@ services:
     environment:
       - API_URL=http://api:8080
     depends_on:
+      - db
       - api
 
   api:
@@ -25,8 +26,21 @@ services:
     depends_on:
       - rabbitmq
 
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
   rabbitmq:
     image: rabbitmq:3-management
     ports:
       - "5672:5672"
       - "15672:15672"
+
+volumes:
+  sqlserver_data:
