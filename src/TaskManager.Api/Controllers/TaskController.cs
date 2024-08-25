@@ -14,11 +14,13 @@ namespace TaskManager.Api.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ILogger<TasksController> _logger;
 
-        public TasksController(ApplicationDbContext context, IMapper mapper)
+        public TasksController(ApplicationDbContext context, IMapper mapper, ILogger<TasksController> logger)
         {
             _context = context;
             _mapper = mapper;
+            _logger = logger;
         }
 
 
@@ -31,6 +33,7 @@ namespace TaskManager.Api.Controllers
             [FromQuery] int pageSize = 10,
             [FromQuery] bool sortDescending = false)
         {
+            _logger.LogInformation("Retrieving tasks with filters: {FilterBy}={FilterValue}, sortBy={SortBy}, pageNumber={PageNumber}, pageSize={PageSize}, sortDescending={SortDescending}", filterBy, filterValue, sortBy, pageNumber, pageSize, sortDescending);
             var query = _context.Tasks.AsQueryable();
 
             // Apply filtering
@@ -72,6 +75,20 @@ namespace TaskManager.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TaskDto>> GetTask(int id)
+        {
+            _logger.LogInformation("Retrieving task with ID: {TaskId}", id);
+            var task = await _context.Tasks.FindAsync(id);
+
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            return _mapper.Map<TaskDto>(task);
+        }
+
         [HttpPost]
         public async Task<ActionResult<TaskDto>> CreateTask(TaskDto taskDto)
         {
@@ -85,6 +102,7 @@ namespace TaskManager.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTask(int id, TaskDto taskDto)
         {
+            _logger.LogInformation("Updating task with ID: {TaskId}, New data: {@TaskDto}", id, taskDto);
             var task = await _context.Tasks.FindAsync(id);
 
             if (task == null)
@@ -109,6 +127,7 @@ namespace TaskManager.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTask(int id)
         {
+            _logger.LogInformation("Deleting task with ID: {TaskId}", id);
             var task = await _context.Tasks.FindAsync(id);
             if (task == null)
             {

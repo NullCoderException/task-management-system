@@ -1,11 +1,24 @@
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using Serilog.Events;
 using TaskManager.Api;
 using TaskManager.Api.Data;
 using TaskManager.Api.Middleware;
 using TaskManager.Api.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.File("logs/taskmanager-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog(); // 
 
 // Add services to the container.
 builder.Services.AddControllers()
@@ -31,8 +44,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(options => // UseSwaggerUI is called only in Development.
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-        options.RoutePrefix = string.Empty;
+        options.RoutePrefix = "swagger";
     });
+    // Redirect root to Swagger UI
+    app.MapGet("/", () => Results.Redirect("/swagger"));
 }
 
 app.UseGlobalExceptionHandler();
@@ -71,7 +86,19 @@ using (var scope = app.Services.CreateScope())
     DbInitializer.Initialize(context);
 }
 
-app.Run();
+try
+{
+    Log.Information("Starting TaskManager API");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application start-up failed");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
