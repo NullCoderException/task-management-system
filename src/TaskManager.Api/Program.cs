@@ -1,10 +1,15 @@
+using System.Text;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer; // Add this using directive
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Serilog.Events;
 using TaskManager.Api;
 using TaskManager.Api.Data;
 using TaskManager.Api.Middleware;
+using TaskManager.Api.Models;
+using TaskManager.Api.Services;
 using TaskManager.Api.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +25,8 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog(); // 
 
+
+
 // Add services to the container.
 builder.Services.AddControllers()
     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<TaskDtoValidator>());
@@ -30,11 +37,41 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
     // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+
+// JWT Configuration
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+builder.Services.Configure<JwtSettings>(jwtSettings);
+
+var secret = jwtSettings["Secret"];
+var issuer = jwtSettings["Issuer"];
+var audience = jwtSettings["Audience"];
+var key = Encoding.ASCII.GetBytes(secret);
+
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidIssuer = issuer,
+        ValidAudience = audience
+    };
+});
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddScoped<JwtService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

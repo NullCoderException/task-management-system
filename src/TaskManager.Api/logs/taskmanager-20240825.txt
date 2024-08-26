@@ -1,0 +1,53 @@
+2024-08-25 13:18:16.476 -05:00 [INF] Saved 3 entities to in-memory store.
+2024-08-25 13:18:16.525 -05:00 [INF] Starting TaskManager API
+2024-08-25 13:18:16.724 -05:00 [INF] User profile is available. Using '/Users/christopherthomas/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-08-25 13:18:16.766 -05:00 [INF] Creating key {91040694-9122-4df0-9707-97999d47a29e} with creation date 2024-08-25 18:18:16Z, activation date 2024-08-25 18:18:16Z, and expiration date 2024-11-23 18:18:16Z.
+2024-08-25 13:18:16.771 -05:00 [WRN] No XML encryptor configured. Key {91040694-9122-4df0-9707-97999d47a29e} may be persisted to storage in unencrypted form.
+2024-08-25 13:18:16.773 -05:00 [INF] Writing data to file '/Users/christopherthomas/.aspnet/DataProtection-Keys/key-91040694-9122-4df0-9707-97999d47a29e.xml'.
+2024-08-25 13:18:16.941 -05:00 [INF] Now listening on: http://localhost:5178
+2024-08-25 13:18:16.943 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-25 13:18:16.944 -05:00 [INF] Hosting environment: Development
+2024-08-25 13:18:16.944 -05:00 [INF] Content root path: /Users/christopherthomas/Projects/task-management-system/src/TaskManager.Api
+2024-08-25 13:18:17.386 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5178/swagger/index.html - null null
+2024-08-25 13:18:17.656 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5178/swagger/index.html - 200 null text/html;charset=utf-8 272.5199ms
+2024-08-25 13:18:17.905 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5178/swagger/v1/swagger.json - null null
+2024-08-25 13:18:18.061 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5178/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 155.9011ms
+2024-08-25 13:18:40.648 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5178/api/User/login - application/json 51
+2024-08-25 13:18:40.666 -05:00 [WRN] Failed to determine the https port for redirect.
+2024-08-25 13:18:40.671 -05:00 [INF] Executing endpoint 'TaskManager.Api.Controllers.UserController.Login (TaskManager.Api)'
+2024-08-25 13:18:40.697 -05:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Api.Models.LoginModel) on controller TaskManager.Api.Controllers.UserController (TaskManager.Api).
+2024-08-25 13:18:40.707 -05:00 [INF] Executed action TaskManager.Api.Controllers.UserController.Login (TaskManager.Api) in 4.5076ms
+2024-08-25 13:18:40.709 -05:00 [INF] Executed endpoint 'TaskManager.Api.Controllers.UserController.Login (TaskManager.Api)'
+2024-08-25 13:20:50.101 -05:00 [INF] Saved 3 entities to in-memory store.
+2024-08-25 13:20:50.151 -05:00 [INF] Starting TaskManager API
+2024-08-25 13:20:50.197 -05:00 [INF] User profile is available. Using '/Users/christopherthomas/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-08-25 13:20:50.390 -05:00 [INF] Now listening on: http://localhost:5178
+2024-08-25 13:20:50.392 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-25 13:20:50.393 -05:00 [INF] Hosting environment: Development
+2024-08-25 13:20:50.393 -05:00 [INF] Content root path: /Users/christopherthomas/Projects/task-management-system/src/TaskManager.Api
+2024-08-25 13:20:50.688 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5178/swagger/index.html - null null
+2024-08-25 13:20:50.915 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5178/swagger/index.html - 200 null text/html;charset=utf-8 228.4268ms
+2024-08-25 13:20:51.153 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5178/swagger/v1/swagger.json - null null
+2024-08-25 13:20:51.306 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5178/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 153.4432ms
+2024-08-25 13:21:05.391 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5178/api/User/login - application/json 50
+2024-08-25 13:21:05.402 -05:00 [WRN] Failed to determine the https port for redirect.
+2024-08-25 13:21:05.407 -05:00 [INF] Executing endpoint 'TaskManager.Api.Controllers.UserController.Login (TaskManager.Api)'
+2024-08-25 13:21:05.431 -05:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Api.Models.LoginModel) on controller TaskManager.Api.Controllers.UserController (TaskManager.Api).
+2024-08-25 13:21:05.490 -05:00 [WRN] Failed login attempt for user string
+2024-08-25 13:21:05.496 -05:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-08-25 13:21:05.515 -05:00 [INF] Executed action TaskManager.Api.Controllers.UserController.Login (TaskManager.Api) in 79.1136ms
+2024-08-25 13:21:05.515 -05:00 [INF] Executed endpoint 'TaskManager.Api.Controllers.UserController.Login (TaskManager.Api)'
+2024-08-25 13:21:05.515 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5178/api/User/login - 401 null application/problem+json; charset=utf-8 124.1271ms
+2024-08-25 13:21:17.798 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5178/api/User/login - application/json 51
+2024-08-25 13:21:17.800 -05:00 [INF] Executing endpoint 'TaskManager.Api.Controllers.UserController.Login (TaskManager.Api)'
+2024-08-25 13:21:17.800 -05:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManager.Api.Models.LoginModel) on controller TaskManager.Api.Controllers.UserController (TaskManager.Api).
+2024-08-25 13:21:17.839 -05:00 [INF] User admin logged in successfully
+2024-08-25 13:21:17.840 -05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-25 13:21:17.842 -05:00 [INF] Executed action TaskManager.Api.Controllers.UserController.Login (TaskManager.Api) in 41.9052ms
+2024-08-25 13:21:17.842 -05:00 [INF] Executed endpoint 'TaskManager.Api.Controllers.UserController.Login (TaskManager.Api)'
+2024-08-25 13:21:17.843 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5178/api/User/login - 200 null application/json; charset=utf-8 44.4316ms
+2024-08-25 13:22:24.374 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5178/api/Tasks?pageNumber=1&pageSize=10&sortDescending=false - null null
+2024-08-25 13:22:24.381 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-08-25 13:22:24.386 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-25 13:22:24.386 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5178/api/Tasks?pageNumber=1&pageSize=10&sortDescending=false - 401 0 null 15.7869ms

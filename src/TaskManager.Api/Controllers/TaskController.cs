@@ -5,9 +5,11 @@ using TaskManager.Api.Models;
 using TaskManager.Api.DTOs;
 using AutoMapper;
 using TaskManager.Api.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TaskManager.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TasksController : ControllerBase
