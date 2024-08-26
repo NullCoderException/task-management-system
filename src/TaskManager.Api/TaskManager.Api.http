@@ -1,6 +1,66 @@
-@TaskManager.Api_HostAddress = http://localhost:5178
+@baseUrl = http://localhost:5001
+@authToken =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidW5pcXVlX25hbWUiOiJhZG1pbiIsImp0aSI6IjFjZTEzNjkwLWFmNTYtNGM1MS05MWIxLTkzZjNmOGE4OTdhNiIsImV4cCI6MTcyNDYzNzA4MSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.D2SY94HpxK_WYwcuRt-Frjcn74u6-lh6F9pHQgo4OFE
 
-GET {{TaskManager.Api_HostAddress}}/weatherforecast/
+### Variables
+@taskId = 1 # Replace with an actual task ID when testing
+
+### Login to get JWT token
+# @name login
+POST {{baseUrl}}/api/user/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password"
+}
+
+### Capture the token from the login response
+{% 
+    if (login.response.body.token) {
+        client.global.set("authToken", login.response.body.token);
+    }
+%}
+
+### Get all tasks (authenticated)
+GET {{baseUrl}}/api/tasks
+Authorization: Bearer {{authToken}}
+
+### Get a specific task (authenticated)
+GET {{baseUrl}}/api/tasks/{{taskId}}
+Authorization: Bearer {{authToken}}
+
+### Create a new task (authenticated)
+POST {{baseUrl}}/api/tasks
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "New Task",
+  "description": "This is a new task created via API",
+  "dueDate": "2023-12-31T23:59:59Z",
+  "status": "NotStarted"
+}
+
+### Update a task (authenticated)
+PUT {{baseUrl}}/api/tasks/{{taskId}}
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "Updated Task",
+  "description": "This task has been updated via API",
+  "dueDate": "2023-12-31T23:59:59Z",
+  "status": "InProgress"
+}
+
+### Delete a task (authenticated)
+DELETE {{baseUrl}}/api/tasks/{{taskId}}
+Authorization: Bearer {{authToken}}
+
+### Try to access a protected endpoint without authentication (should fail)
+GET {{baseUrl}}/api/tasks
+###
+GET {{baseUrl}}/weatherforecast/
 Accept: application/json
 
 ###
