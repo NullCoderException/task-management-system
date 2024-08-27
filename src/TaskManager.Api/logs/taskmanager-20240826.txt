@@ -1,0 +1,110 @@
+2024-08-26 20:25:17.400 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer (using delegate consumer factory)
+2024-08-26 20:25:17.510 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:25:17.512 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:25:17.514 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:25:17.561 -05:00 [INF] Configured endpoint TaskCreated, Consumer: TaskManager.Api.Consumers.TaskCreatedConsumer
+2024-08-26 20:25:17.563 -05:00 [INF] Configured endpoint TaskReminder, Consumer: TaskManager.Api.Consumers.TaskReminderConsumer
+2024-08-26 20:25:17.564 -05:00 [INF] Configured endpoint DeadLetterQueue, Consumer: TaskManager.Api.Consumers.DeadLetterQueueConsumer
+2024-08-26 20:25:17.569 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer
+2024-08-26 20:25:17.570 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer
+2024-08-26 20:25:17.571 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer
+2024-08-26 20:25:17.571 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer
+2024-08-26 20:27:05.493 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer (using delegate consumer factory)
+2024-08-26 20:27:05.576 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:27:05.578 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:27:05.579 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:27:05.617 -05:00 [INF] Configured endpoint TaskCreated, Consumer: TaskManager.Api.Consumers.TaskCreatedConsumer
+2024-08-26 20:27:05.619 -05:00 [INF] Configured endpoint TaskReminder, Consumer: TaskManager.Api.Consumers.TaskReminderConsumer
+2024-08-26 20:27:05.621 -05:00 [INF] Configured endpoint DeadLetterQueue, Consumer: TaskManager.Api.Consumers.DeadLetterQueueConsumer
+2024-08-26 20:27:05.623 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer
+2024-08-26 20:27:05.624 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer
+2024-08-26 20:27:05.625 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer
+2024-08-26 20:27:05.625 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer
+2024-08-26 20:28:19.883 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer (using delegate consumer factory)
+2024-08-26 20:28:19.964 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:28:19.966 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:28:19.968 -05:00 [DBG] Subscribing Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer (using delegate consumer factory)
+2024-08-26 20:28:20.005 -05:00 [INF] Configured endpoint TaskCreated, Consumer: TaskManager.Api.Consumers.TaskCreatedConsumer
+2024-08-26 20:28:20.007 -05:00 [INF] Configured endpoint TaskReminder, Consumer: TaskManager.Api.Consumers.TaskReminderConsumer
+2024-08-26 20:28:20.009 -05:00 [INF] Configured endpoint DeadLetterQueue, Consumer: TaskManager.Api.Consumers.DeadLetterQueueConsumer
+2024-08-26 20:28:20.012 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer
+2024-08-26 20:28:20.013 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer
+2024-08-26 20:28:20.013 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer
+2024-08-26 20:28:20.014 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer
+2024-08-26 20:29:47.256 -05:00 [INF] Configured endpoint TaskCreated, Consumer: TaskManager.Api.Consumers.TaskCreatedConsumer
+2024-08-26 20:29:47.319 -05:00 [INF] Configured endpoint TaskReminder, Consumer: TaskManager.Api.Consumers.TaskReminderConsumer
+2024-08-26 20:29:47.320 -05:00 [INF] Configured endpoint DeadLetterQueue, Consumer: TaskManager.Api.Consumers.DeadLetterQueueConsumer
+2024-08-26 20:29:47.327 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer
+2024-08-26 20:29:47.329 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer
+2024-08-26 20:29:47.334 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer
+2024-08-26 20:29:47.337 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer
+2024-08-26 20:29:48.068 -05:00 [INF] Saved 3 entities to in-memory store.
+2024-08-26 20:29:48.075 -05:00 [INF] Starting TaskManager API
+2024-08-26 20:29:48.087 -05:00 [INF] User profile is available. Using '/Users/christopherthomas/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-08-26 20:29:48.114 -05:00 [DBG] TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+2024-08-26 20:29:48.120 -05:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-08-26 20:29:48.121 -05:00 [INF] Quartz Scheduler created
+2024-08-26 20:29:48.122 -05:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-08-26 20:29:48.122 -05:00 [INF] RAMJobStore initialized.
+2024-08-26 20:29:48.123 -05:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-08-26 20:29:48.123 -05:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-08-26 20:29:48.123 -05:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-08-26 20:29:48.136 -05:00 [INF] Adding 0 jobs, 0 triggers.
+2024-08-26 20:29:48.140 -05:00 [DBG] Starting bus instances: IBus
+2024-08-26 20:29:48.144 -05:00 [DBG] Starting bus: "rabbitmq://rabbitmq/"
+2024-08-26 20:29:48.180 -05:00 [DBG] Connect: guest@rabbitmq:5672/
+2024-08-26 20:29:48.271 -05:00 [INF] Now listening on: http://localhost:5178
+2024-08-26 20:29:48.271 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-26 20:29:48.271 -05:00 [INF] Hosting environment: Development
+2024-08-26 20:29:48.271 -05:00 [INF] Content root path: /Users/christopherthomas/Projects/task-management-system/src/TaskManager.Api
+2024-08-26 20:29:48.278 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-08-26 20:29:48.280 -05:00 [DBG] Batch acquisition of 0 triggers
+2024-08-26 20:29:54.891 -05:00 [INF] Application is shutting down...
+2024-08-26 20:29:54.902 -05:00 [DBG] Stopping bus instances: IBus
+2024-08-26 20:29:54.903 -05:00 [WRN] Failed to stop bus: "rabbitmq://rabbitmq/ChristophersMBP_TaskManagerApi_bus_uwaoyyneynsp7duybdqccp7hfh?temporary=true" (Not Started)
+2024-08-26 20:29:54.906 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2024-08-26 20:29:54.907 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2024-08-26 20:29:54.910 -05:00 [DBG] Shutting down threadpool...
+2024-08-26 20:29:54.910 -05:00 [DBG] Waiting for 0 threads to complete.
+2024-08-26 20:29:54.910 -05:00 [DBG] No executing jobs remaining, all threads stopped.
+2024-08-26 20:29:54.910 -05:00 [DBG] Shutdown of threadpool complete.
+2024-08-26 20:29:54.912 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2024-08-26 20:36:07.864 -05:00 [INF] Configured endpoint TaskCreated, Consumer: TaskManager.Api.Consumers.TaskCreatedConsumer
+2024-08-26 20:36:07.932 -05:00 [INF] Configured endpoint DeadLetterQueue, Consumer: TaskManager.Api.Consumers.DeadLetterQueueConsumer
+2024-08-26 20:36:07.935 -05:00 [INF] Configured endpoint TaskReminder, Consumer: TaskManager.Api.Consumers.TaskReminderConsumer
+2024-08-26 20:36:07.944 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ScheduleMessageConsumer
+2024-08-26 20:36:07.946 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.CancelScheduledMessageConsumer
+2024-08-26 20:36:07.949 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.PauseScheduledMessageConsumer
+2024-08-26 20:36:07.952 -05:00 [INF] Configured endpoint quartz, Consumer: MassTransit.QuartzIntegration.ResumeScheduledMessageConsumer
+2024-08-26 20:36:07.953 -05:00 [INF] Configured endpoint dead-letter-queue, Consumer: TaskManager.Api.Consumers.DeadLetterQueueConsumer
+2024-08-26 20:36:08.581 -05:00 [INF] Saved 3 entities to in-memory store.
+2024-08-26 20:36:08.588 -05:00 [INF] Starting TaskManager API
+2024-08-26 20:36:08.599 -05:00 [INF] User profile is available. Using '/Users/christopherthomas/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-08-26 20:36:08.626 -05:00 [DBG] TaskSchedulingThreadPool configured with max concurrency of 10 and TaskScheduler ThreadPoolTaskScheduler.
+2024-08-26 20:36:08.631 -05:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2024-08-26 20:36:08.631 -05:00 [INF] Quartz Scheduler created
+2024-08-26 20:36:08.632 -05:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2024-08-26 20:36:08.632 -05:00 [INF] RAMJobStore initialized.
+2024-08-26 20:36:08.633 -05:00 [INF] Quartz Scheduler 3.13.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2024-08-26 20:36:08.633 -05:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2024-08-26 20:36:08.633 -05:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2024-08-26 20:36:08.645 -05:00 [INF] Adding 0 jobs, 0 triggers.
+2024-08-26 20:36:08.649 -05:00 [DBG] Starting bus instances: IBus
+2024-08-26 20:36:08.653 -05:00 [DBG] Starting bus: "rabbitmq://rabbitmq/"
+2024-08-26 20:36:08.687 -05:00 [DBG] Connect: guest@rabbitmq:5672/
+2024-08-26 20:36:08.751 -05:00 [INF] Now listening on: http://localhost:5178
+2024-08-26 20:36:08.751 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-26 20:36:08.751 -05:00 [INF] Hosting environment: Development
+2024-08-26 20:36:08.751 -05:00 [INF] Content root path: /Users/christopherthomas/Projects/task-management-system/src/TaskManager.Api
+2024-08-26 20:36:08.756 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2024-08-26 20:36:08.758 -05:00 [DBG] Batch acquisition of 0 triggers
+2024-08-26 20:36:12.927 -05:00 [INF] Application is shutting down...
+2024-08-26 20:36:12.939 -05:00 [DBG] Stopping bus instances: IBus
+2024-08-26 20:36:12.941 -05:00 [WRN] Failed to stop bus: "rabbitmq://rabbitmq/ChristophersMBP_TaskManagerApi_bus_rh4yyyneynsph8kebdqccqr9r3?temporary=true" (Not Started)
+2024-08-26 20:36:12.944 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2024-08-26 20:36:12.945 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2024-08-26 20:36:12.949 -05:00 [DBG] Shutting down threadpool...
+2024-08-26 20:36:12.949 -05:00 [DBG] Waiting for 0 threads to complete.
+2024-08-26 20:36:12.949 -05:00 [DBG] No executing jobs remaining, all threads stopped.
+2024-08-26 20:36:12.950 -05:00 [DBG] Shutdown of threadpool complete.
+2024-08-26 20:36:12.952 -05:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.

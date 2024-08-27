@@ -2,7 +2,7 @@ using System;
 
 namespace TaskManager.Api.DTOs
 {
-    public class TaskDto
+    public class TaskItemDto
     {
         public string Title { get; set; }
         public string Description { get; set; }
