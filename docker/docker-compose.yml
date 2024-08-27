@@ -1,17 +1,21 @@
 services:
   web:
+    container_name: taskmanager-web
     build:
       context: ../src/TaskManager.Web
       dockerfile: ../../docker/Dockerfile.web
     ports:
       - "3000:3000"
     environment:
-      - API_URL=http://api:8080
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - RabbitMQ__Host=rabbitmq
     depends_on:
       - db
       - api
 
   api:
+    container_name: taskmanager-api
     build:
       context: ../src
       dockerfile: ../docker/Dockerfile.api
@@ -25,16 +29,25 @@ services:
       - rabbitmq
 
   db:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql-db
+    hostname: mssql-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
     environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrong!Passw0rd
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Passw0rd"
+      MSSQL_DATA_DIR: /var/opt/mssql/data
+      MSSQL_PID: "Developer"
+      MSSQL_TCP_PORT: 1433
     ports:
       - "1433:1433"
     volumes:
-      - sqlserver_data:/var/opt/mssql
+      - sqlserver_data:/var/opt/mssql/data
+      - sqlserver_log:/var/opt/mssql/log
+      - sqlserver_secrets:/var/opt/mssql/secrets
 
   rabbitmq:
+    container_name: rabbitmq
     image: rabbitmq:3-management
     ports:
       - "5672:5672"
@@ -42,3 +55,5 @@ services:
 
 volumes:
   sqlserver_data:
+  sqlserver_log:
+  sqlserver_secrets:

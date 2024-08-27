@@ -1,5 +1,6 @@
 using System.Text;
 using FluentValidation.AspNetCore;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer; // Add this using directive
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -11,6 +12,9 @@ using TaskManager.Api.Middleware;
 using TaskManager.Api.Models;
 using TaskManager.Api.Services;
 using TaskManager.Api.Validators;
+using TaskManager.Api.Consumers;
+using Quartz;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,9 +39,58 @@ builder.Services.AddControllers()
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseInMemoryDatabase("TaskManagerDb"));
 
+// Configure Quartz
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+    //var jobKey = new JobKey("task-reminder-job", "task-reminder-group");
+});
+
+// Add the Quartz.NET hosted service
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
+// Configure MassTransit
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<TaskItemCreatedConsumer>();
+    x.AddConsumer<DeadLetterQueueConsumer>();
+    x.AddConsumer<TaskReminderConsumer>();
+
+    x.AddQuartzConsumers();
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("rabbitmq", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+
+        cfg.UseMessageRetry(r =>
+        {
+            r.Incremental(3, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2));
+        });
+
+        cfg.UseMessageScheduler(new Uri("queue:scheduler"));
+
+        cfg.ConfigureEndpoints(context);
+
+        cfg.ReceiveEndpoint("dead-letter-queue", e =>
+        {
+            e.ConfigureConsumer<DeadLetterQueueConsumer>(context);
+        });
+    });
+});
+
+// Register IMessageScheduler
+builder.Services.AddSingleton<IMessageScheduler>(provider =>
+{
+    var bus = provider.GetRequiredService<IBus>();
+    return bus.CreateMessageScheduler(new Uri("queue:scheduler"));
+});
+
     // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
-
 
 // JWT Configuration
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
@@ -90,6 +143,7 @@ if (app.Environment.IsDevelopment())
 app.UseGlobalExceptionHandler();
 
 app.UseHttpsRedirection();
+app.MapHealthChecks("/health");
 
 var summaries = new[]
 {

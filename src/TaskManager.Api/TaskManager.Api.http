@@ -1,6 +1,5 @@
 @baseUrl = http://localhost:5001
-@authToken =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidW5pcXVlX25hbWUiOiJhZG1pbiIsImp0aSI6IjFjZTEzNjkwLWFmNTYtNGM1MS05MWIxLTkzZjNmOGE4OTdhNiIsImV4cCI6MTcyNDYzNzA4MSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.D2SY94HpxK_WYwcuRt-Frjcn74u6-lh6F9pHQgo4OFE
-
+@authToken =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidW5pcXVlX25hbWUiOiJhZG1pbiIsImp0aSI6ImRmYmM5NmVkLWQ5MzAtNGRhYy05M2NlLWMxMDNkNGE1Y2NiYyIsImV4cCI6MTcyNDcyNTkwOSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.TWOuhwTyHkJ05Nty-9hWDQuh3RfTkUK5b_gtIwHEYzo
 ### Variables
 @taskId = 1 # Replace with an actual task ID when testing
 
@@ -35,9 +34,9 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "title": "New Task",
+  "title": "New Task 2",
   "description": "This is a new task created via API",
-  "dueDate": "2023-12-31T23:59:59Z",
+  "dueDate": "2024-09-20T23:59:59Z",
   "status": "NotStarted"
 }
 

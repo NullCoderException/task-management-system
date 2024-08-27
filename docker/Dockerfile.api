@@ -5,7 +5,6 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["TaskManager.Api/TaskManager.Api.csproj", "TaskManager.Api/"]
-COPY ["TaskManager.Messaging/TaskManager.Messaging.csproj", "TaskManager.Messaging/"]
 RUN dotnet restore "TaskManager.Api/TaskManager.Api.csproj"
 COPY . .
 WORKDIR "/src/TaskManager.Api"

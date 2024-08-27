@@ -3,7 +3,7 @@ using TaskManager.Api.DTOs;
 
 namespace TaskManager.Api.Validators
 {
-    public class TaskDtoValidator : AbstractValidator<TaskDto>
+    public class TaskDtoValidator : AbstractValidator<TaskItemDto>
     {
         public TaskDtoValidator()
         {
